@@ -15,6 +15,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             //Local list of integers to hold the first five measurements of the text
             List<int> parameters = new List<int>();
+            string text;
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
@@ -34,20 +35,23 @@ namespace CMP1903M_Assessment_1_Base_Code
                 Console.WriteLine(a);
             }*/
 
+            Input newText = new();
+            text = newText.manualTextInput();
 
             //Create an 'Analyse' object
             //Pass the text input to the 'analyseText' method
+            Analyse textAnalysis = new(text);
+            textAnalysis.analyseText();
+
+            //Receive a list of integers back
 
 
-                //Receive a list of integers back
+            //Report the results of the analysis
 
 
-                //Report the results of the analysis
+            //TO ADD: Get the frequency of individual letters?
 
-
-                //TO ADD: Get the frequency of individual letters?
-
-
+           
         }
         
         
