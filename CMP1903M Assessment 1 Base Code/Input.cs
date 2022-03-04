@@ -17,8 +17,28 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Gets text input from the keyboard
         public string manualTextInput()
         {
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Gimme Dat Inputtiedoo: ");
+#pragma warning disable CS8601 // Possible null reference assignment.
+                    text = Console.ReadLine();
+                    if (text != null)
+                    {
+                        return text;
+                    }
+                    else
+                    {
+                        throw new FormatException("Input is null");
+                    }
+                }
 
-            return text;
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nInvalid input \n");
+                }
+            }
         }
 
         //Method: fileTextInput
