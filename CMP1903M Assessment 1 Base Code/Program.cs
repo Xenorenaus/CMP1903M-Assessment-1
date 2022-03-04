@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.IO;
+
 namespace CMP1903M_Assessment_1_Base_Code
 {
     class Program
@@ -17,7 +19,13 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Create 'Input' object
             //Get either manually entered text, or text from a file
             Input newInput = new();
-            string newText = newInput.manualTextInput();
+
+            //Get file name, location and file type are static
+            string fileName = "ReadFromFile";
+            string filePath = @"..\..\..\..\" + fileName + ".txt";
+
+            string newText = newInput.fileTextInput(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, filePath));
+            
 
             /*Console.WriteLine(newText);
 
