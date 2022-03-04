@@ -14,7 +14,6 @@ namespace CMP1903M_Assessment_1_Base_Code
         string vowels;
         string consonants;
 
-
         //Constructor 
         public Analyse(string txt)
         {
@@ -28,7 +27,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         //Method: analyseText
         //Returns: list of integers
         //Calculates and returns an analysis of the text
-        public List<int> analyseText()
+        public List<int> AnalyseText()
         {
             //List of integers to hold the first five measurements:
             //1. Number of sentences

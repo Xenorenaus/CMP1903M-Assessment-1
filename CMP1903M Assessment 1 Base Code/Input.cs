@@ -16,7 +16,6 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         string filePath;
 
-
         //Constructor
         public Input()
         {
@@ -55,6 +54,8 @@ namespace CMP1903M_Assessment_1_Base_Code
             catch (Exception e)
             {
                 Console.WriteLine(e.GetBaseException().Message + "\n");
+                Console.ReadLine();
+                Environment.Exit(1);
             }
 
             return text;

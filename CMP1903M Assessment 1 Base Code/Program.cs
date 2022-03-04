@@ -23,10 +23,12 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Create an 'Analyse' object from constructor
             //Get parameters from the text analysis
             Analyse newAnalysis = new(text);
-            parameters = newAnalysis.analyseText();
+            parameters = newAnalysis.AnalyseText();
 
             //Create 'Report' object from constructor, passing parameters
             //Display the results of the analysis
+            Report newReport = new(text, parameters);
+            newReport.DisplayStatistics();
 
 
             /* TO DO: Add the ability to input multiple lines of text manually
