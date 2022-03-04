@@ -8,9 +8,9 @@ using System.IO;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
+    //Handles the text input for Assessment 1
     public class Input
     {
-        //Handles the text input for Assessment 1
         string text;
         InputTypes inputType;
 
@@ -26,27 +26,30 @@ namespace CMP1903M_Assessment_1_Base_Code
             filePath = "";
         }
 
+
+        //Method: GetText
+        //Returns: string (The text input)
+        //Passes a function to get input based on the user's choice of input type
         public string GetText()
         {
-            SetInput();
+            SetInputType();
 
             try
             {
                 if (inputType.Equals(InputTypes.ManualInput))
                 {
-                    manualTextInput();
+                    ManualTextInput();
                 }
 
                 else if (inputType.Equals(InputTypes.FileInput))
                 {
-                    fileTextInput(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, filePath));
+                    FileTextInput(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, filePath));
                 }
 
                 else
                 {
                     throw new Exception("What the f***???");
                 }
-
             }
 
             catch (Exception e)
@@ -57,10 +60,14 @@ namespace CMP1903M_Assessment_1_Base_Code
             return text;
         }
 
-        void SetInput()
+
+        //Method: SetInputType
+        //Retrieves input and determines whether inputType is manual or from a file, in which case, which file
+        void SetInputType()
         {
             string choice;
             string fileName;
+
             while (inputType.Equals(InputTypes.None))
             {
                 try
@@ -76,29 +83,29 @@ namespace CMP1903M_Assessment_1_Base_Code
                     switch (choice)
                     {
                         case ("1"):
-                            {
-                                inputType = InputTypes.ManualInput;
-                                break;
-                            }
+                        {
+                            inputType = InputTypes.ManualInput;
+                            break;
+                        }
 
                         case ("2"):
-                            {
-                                Console.WriteLine("What is the file's name?");
+                        {
+                            Console.WriteLine("What is the file's name?");
 
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                                fileName = Console.ReadLine();
+                            fileName = Console.ReadLine();
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
 
-                                filePath = @"..\..\..\..\" + fileName + ".txt";
+                            filePath = @"..\..\..\..\" + fileName + ".txt";
 
-                                inputType = InputTypes.FileInput;
-                                break;
-                            }
+                            inputType = InputTypes.FileInput;
+                            break;
+                        }
 
                         default:
-                            {
-                                throw new Exception("Given choice was neither 1 nor 0");
-                            }
+                        {
+                            throw new Exception("Given choice was neither 1 nor 0");
+                        }
                     }
                 }
 
@@ -114,24 +121,26 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
         }
 
-        //Method: manualTextInput
-        //Arguments: none
-        //Returns: string
-        //Gets text input from the keyboard
-        void manualTextInput()
+
+        //Method: ManualTextInput
+        //Sets text based on input from the keyboard
+        void ManualTextInput()
         {
             while (true)
             {
                 try
                 {
                     Console.WriteLine("Gimme Dat Inputtiedoo: ");
+
 #pragma warning disable CS8601 // Possible null reference assignment.
                     text = Console.ReadLine();
 #pragma warning restore CS8601 // Possible null reference assignment.
+
                     if (text != null)
                     {
                         return;
                     }
+
                     else
                     {
                         throw new FormatException("Input is null");
@@ -145,13 +154,13 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
         }
 
-        //Method: fileTextInput
+        //Method: FileTextInput
         //Arguments: string (the file path)
-        //Returns: string
-        //Gets text input from a .txt file
-        void fileTextInput(string filePath)
+        //Sets text based on input from a .txt file
+        void FileTextInput(string filePath)
         {
             Console.WriteLine(filePath);
+
             try
             {
                 text = File.ReadAllText(filePath);
@@ -164,23 +173,9 @@ namespace CMP1903M_Assessment_1_Base_Code
                 Console.ReadLine();
                 Environment.Exit(1);
             }
-
-            /*if (File.Exists(filePath))
-            {
-                text = File.ReadAllText(filePath);
-
-                Console.WriteLine(text);
-                Console.ReadLine();
-            }
-
-            else
-            {
-                Console.WriteLine("File does not exist, exiting program, press enter to exit.");
-                Console.ReadLine();
-                Environment.Exit(1);
-            }*/
         }
     }
+
 
     enum InputTypes
     {
@@ -188,5 +183,4 @@ namespace CMP1903M_Assessment_1_Base_Code
         ManualInput,
         FileInput
     }
-
 }

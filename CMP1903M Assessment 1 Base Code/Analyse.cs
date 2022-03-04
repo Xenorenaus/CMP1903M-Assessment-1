@@ -6,19 +6,24 @@ using System.Threading.Tasks;
 
 namespace CMP1903M_Assessment_1_Base_Code
 {
+    //Handles the analysis of text
     public class Analyse
     {
-        //Handles the analysis of text
         string text;
 
-        string vowels = "aeiou";
-        string consonants = "bcdfghjklmnpqrstvwxyz";
+        string vowels;
+        string consonants;
 
+
+        //Constructor 
         public Analyse(string txt)
         {
-            //Constructor 
             text = txt;
+
+            vowels = "aeiou";
+            consonants = "bcdfghjklmnpqrstvwxyz";
         }
+
 
         //Method: analyseText
         //Returns: list of integers
@@ -67,7 +72,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
             }
 
-                return values;
+            return values;
         }
     }
 }
