@@ -13,7 +13,9 @@ namespace CMP1903M_Assessment_1_Base_Code
         {
             //Local list of integers to hold the first five measurements of the text
             List<int> parameters = new List<int>();
+
             string text;
+            string[] fileOutputStrings;
 
             //Create 'Input' object
             //Get either manually entered text, or text from a file
@@ -24,10 +26,11 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Get parameters from the text analysis
             Analyse newAnalysis = new(text);
             parameters = newAnalysis.AnalyseText();
+            fileOutputStrings = newAnalysis.GetFileOutputStrings();
 
             //Create 'Report' object from constructor, passing parameters
             //Display the results of the analysis
-            Report newReport = new(text, parameters);
+            Report newReport = new(text, parameters, fileOutputStrings);
             newReport.DisplayStatistics();
 
 

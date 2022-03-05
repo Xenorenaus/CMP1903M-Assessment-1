@@ -91,11 +91,16 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                         case ("2"):
                         {
-                            Console.WriteLine("What is the file's name?");
+                            Console.WriteLine("What is the file's name? (Leave blank for default file)");
 
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                             fileName = Console.ReadLine();
 #pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+
+                            if (fileName == "")
+                            {
+                                fileName = "ReadFromFile";
+                            }
 
                             filePath = @"..\..\..\..\" + fileName + ".txt";
 
@@ -131,7 +136,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 try
                 {
-                    Console.WriteLine("Gimme Dat Inputtiedoo: ");
+                    Console.WriteLine("Gimme Dat Inputtiedoo: ");//, put \\n at the start of the line to write another line after
 
 #pragma warning disable CS8601 // Possible null reference assignment.
                     text = Console.ReadLine();

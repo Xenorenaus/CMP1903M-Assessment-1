@@ -10,6 +10,7 @@ namespace CMP1903M_Assessment_1_Base_Code
     public class Analyse
     {
         string text;
+        string[] fileOutputStrings;
 
         string vowels;
         string consonants;
@@ -18,9 +19,16 @@ namespace CMP1903M_Assessment_1_Base_Code
         public Analyse(string txt)
         {
             text = txt;
+            fileOutputStrings = new string[]{ };
 
             vowels = "aeiou";
             consonants = "bcdfghjklmnpqrstvwxyz";
+        }
+
+
+        public string[] GetFileOutputStrings()
+        {
+            return fileOutputStrings;
         }
 
 
@@ -36,15 +44,34 @@ namespace CMP1903M_Assessment_1_Base_Code
             //4. Number of upper case letters
             //5. Number of lower case letters
             List<int> values = new List<int>();
+            string newWord = "";
 
             //Initialise all the values in the list to '0'
-            for(int i = 0; i<5; i++)
+            for (int i = 0; i < 6; i++)
             {
                 values.Add(0);
             }
 
             foreach (char c in text)
             {
+                if (c != ' ' && c != '.')
+                {
+                    newWord += c;
+                }
+
+                else
+                {
+                    if (newWord.Length > 7)
+                    {
+                        fileOutputStrings.Append(newWord);
+                        Array.Resize(ref fileOutputStrings, fileOutputStrings.Length + 1);
+                        fileOutputStrings[fileOutputStrings.Length - 1] = newWord;
+                        values[5]++;
+                    }
+
+                    newWord = "";
+                }
+                
                 if (c == '.')
                 {
                     values[0]++;
@@ -69,6 +96,15 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     values[4]++;
                 }
+
+            }
+
+            if (newWord.Length > 7)
+            {
+                fileOutputStrings.Append(newWord);
+                Array.Resize(ref fileOutputStrings, fileOutputStrings.Length + 1);
+                fileOutputStrings[fileOutputStrings.Length - 1] = newWord;
+                values[5]++;
             }
 
             return values;
