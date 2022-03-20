@@ -75,7 +75,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     Console.WriteLine("\nWhat input would you like to get?\n" +
                         "1) Enter the text via the keyboard?\n" +
-                        "2. Read in the text from a file?");
+                        "2) Read in the text from a file?");
 
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                     choice = Console.ReadLine();
@@ -91,7 +91,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                         case ("2"):
                         {
-                            Console.WriteLine("What is the file's name? (Leave blank for default file)");
+                            Console.WriteLine("\nWhat is the file's name? (Leave blank for default file)");
 
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                             fileName = Console.ReadLine();
@@ -141,13 +141,13 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                     while (!endInput)
                     {
-                            Console.WriteLine("Gimme Dat Inputtiedoo(* as last character for another line of input): ");//, put \\n at the start of the line to write another line after
+                            Console.WriteLine("\nGimme Dat Inputtiedoo(* as last character for another line of input): ");//, put \\n at the start of the line to write another line after
 
 #pragma warning disable CS8600 // Possible null reference assignment.
                         newText = Console.ReadLine();
 #pragma warning restore CS8600 // Possible null reference assignment.
 
-                        if (newText != null)
+                        if (newText != null || newText == '\r'.ToString())
                         {
                             text += newText;
 
@@ -183,7 +183,14 @@ namespace CMP1903M_Assessment_1_Base_Code
             try
             {
                 text = File.ReadAllText(filePath);
-                return;
+                if (text != null)
+                {
+                    return;
+                }
+                else
+                {
+                    throw new FileNotFoundException();
+                }
             }
 
             catch(FileNotFoundException)

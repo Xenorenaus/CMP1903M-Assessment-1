@@ -26,6 +26,9 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
 
 
+        //Method: DisplayMainStatistics
+        //Displays the number of sentences, vowels, consonants, upper-case & lower-case letters and the number of long words
+        //Also calls CreateLongWordsFile if there are any long words
         public void DisplayMainStatistics()
         {
             string spaces;
@@ -49,8 +52,12 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                 CreateLongWordsFile();
             }
+
+            Console.WriteLine("\n\n");
         }
 
+        //Method: DisplayLetterStatistics
+        //Displays frequency of each letter in the input
         public void DisplayLetterStatistics()
         {
             string spaces;
@@ -65,6 +72,8 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
 
 
+        //Method: CreateLongWordsFile
+        //Creates a file containing all the long words in the input
         void CreateLongWordsFile()
         {
             using (StreamWriter sw = File.CreateText(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\..\..\Long-Words.txt"))

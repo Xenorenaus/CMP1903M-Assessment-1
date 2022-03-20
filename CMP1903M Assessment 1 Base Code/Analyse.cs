@@ -25,14 +25,15 @@ namespace CMP1903M_Assessment_1_Base_Code
             consonants = "bcdfghjklmnpqrstvwxyz";
         }
 
-
+        //Method: GetFileOutputStrings
+        //Returns: string array of long words to be put into long words file
         public string[] GetFileOutputStrings()
         {
             return fileOutputStrings;
         }
 
 
-        //Method: analyseText
+        //Method: AnalyseText
         //Returns: list of integers
         //Calculates and returns an analysis of the text
         public List<int> AnalyseText()
@@ -62,13 +63,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                 else
                 {
-                    if (newWord.Length > 7)
-                    {
-                        fileOutputStrings.Append(newWord);
-                        Array.Resize(ref fileOutputStrings, fileOutputStrings.Length + 1);
-                        fileOutputStrings[fileOutputStrings.Length - 1] = newWord;
-                        values[5]++;
-                    }
+                    IncrementValuesList(newWord, values);
 
                     newWord = "";
                 }
@@ -102,15 +97,30 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             }
 
+            IncrementValuesList(newWord, values);
+
+            return values;
+        }
+
+
+        //Method: IncrementValuesList
+        /* Parameters:
+         * String newWord (Word to add to array if long enough)
+         * List<int> valsList (List to add the new word to & return)
+         */
+        //Returns: list of integers
+        //Calculates and returns an analysis of the text
+        public List<int> IncrementValuesList(string newWord, List<int> valsList)
+        {
             if (newWord.Length > 7)
             {
                 fileOutputStrings.Append(newWord);
                 Array.Resize(ref fileOutputStrings, fileOutputStrings.Length + 1);
                 fileOutputStrings[fileOutputStrings.Length - 1] = newWord;
-                values[5]++;
+                valsList[5]++;
             }
 
-            return values;
+            return valsList;
         }
     }
 }

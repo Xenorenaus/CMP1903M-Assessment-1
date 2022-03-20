@@ -45,7 +45,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                 {
                     Console.WriteLine("\nWould you like to see the amount of times each letter was used?\n" +
                         "1) Yes\n" +
-                        "2. No");
+                        "2) No");
 
 #pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
                     choice = Console.ReadLine();
@@ -85,6 +85,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             }
 
 
+            //Display frequency of individual letters
             if (displayLetters)
             {
                 newReport.DisplayLetterStatistics();
