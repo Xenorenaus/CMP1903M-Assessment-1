@@ -110,7 +110,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                         default:
                         {
-                            throw new Exception("Given choice was neither 1 nor 0");
+                            throw new Exception("Given choice was neither 1 nor 2");
                         }
                     }
                 }
@@ -143,9 +143,9 @@ namespace CMP1903M_Assessment_1_Base_Code
                     {
                             Console.WriteLine("Gimme Dat Inputtiedoo(* as last character for another line of input): ");//, put \\n at the start of the line to write another line after
 
-#pragma warning disable CS8601 // Possible null reference assignment.
+#pragma warning disable CS8600 // Possible null reference assignment.
                         newText = Console.ReadLine();
-#pragma warning restore CS8601 // Possible null reference assignment.
+#pragma warning restore CS8600 // Possible null reference assignment.
 
                         if (newText != null)
                         {
