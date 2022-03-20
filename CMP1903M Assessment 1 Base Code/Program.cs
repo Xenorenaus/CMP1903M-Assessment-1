@@ -17,6 +17,10 @@ namespace CMP1903M_Assessment_1_Base_Code
             string text;
             string[] fileOutputStrings;
 
+            bool displayLetters = false;
+            bool validChoice = false;
+            string choice;
+
             //Create 'Input' object
             //Get either manually entered text, or text from a file
             Input newInput = new();
@@ -31,10 +35,63 @@ namespace CMP1903M_Assessment_1_Base_Code
             //Create 'Report' object from constructor, passing parameters
             //Display the results of the analysis
             Report newReport = new(text, parameters, fileOutputStrings);
-            newReport.DisplayStatistics();
+            newReport.DisplayMainStatistics();
 
 
-            //TO ADD: Get the frequency of individual letters?
+            //Get whether to see frequency of individual letters
+            while (!validChoice)
+            {
+                try
+                {
+                    Console.WriteLine("\nWould you like to see the amount of times each letter was used?\n" +
+                        "1) Yes\n" +
+                        "2. No");
+
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
+                    choice = Console.ReadLine();
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+
+                    switch (choice)
+                    {
+                        case ("1"):
+                            {
+                                displayLetters = true;
+                                validChoice = true;
+                                break;
+                            }
+
+                        case ("2"):
+                            {
+                                validChoice = true;
+                                break;
+                            }
+
+                        default:
+                            {
+                                throw new Exception("Given choice was neither 1 nor 2");
+                            }
+                    }
+                }
+
+                catch (FormatException)
+                {
+                    Console.WriteLine("\nInvalid input \n");
+                }
+
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.GetBaseException().Message + "\n");
+                }
+            }
+
+
+            if (displayLetters)
+            {
+                newReport.DisplayLetterStatistics();
+            }
+
+            Console.WriteLine("\n\nPress enter to exit.");
+            Console.ReadLine();
         }
     }
 }

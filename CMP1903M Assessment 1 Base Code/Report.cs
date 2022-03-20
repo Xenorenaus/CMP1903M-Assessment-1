@@ -26,7 +26,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
 
 
-        public void DisplayStatistics()
+        public void DisplayMainStatistics()
         {
             string spaces;
 
@@ -48,6 +48,19 @@ namespace CMP1903M_Assessment_1_Base_Code
                 }
 
                 CreateLongWordsFile();
+            }
+        }
+
+        public void DisplayLetterStatistics()
+        {
+            string spaces;
+
+            Console.WriteLine("\n\nThe number of each letter is: \n");
+
+            for (int i = 0; i < 26; i++)
+            {
+                spaces = new string(' ', 20);
+                Console.WriteLine((char)(i+65) + ":" + spaces + parameters[i + 6].ToString());
             }
         }
 

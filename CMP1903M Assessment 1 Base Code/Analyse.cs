@@ -38,16 +38,17 @@ namespace CMP1903M_Assessment_1_Base_Code
         public List<int> AnalyseText()
         {
             //List of integers to hold the first five measurements:
-            //1. Number of sentences
-            //2. Number of vowels
-            //3. Number of consonants
-            //4. Number of upper case letters
-            //5. Number of lower case letters
+            //0. Number of sentences
+            //1. Number of vowels
+            //2. Number of consonants
+            //3. Number of upper case letters
+            //4. Number of lower case letters
+            //5 - 31. Number of A-Z
             List<int> values = new List<int>();
             string newWord = "";
 
             //Initialise all the values in the list to '0'
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 32; i++)
             {
                 values.Add(0);
             }
@@ -80,11 +81,13 @@ namespace CMP1903M_Assessment_1_Base_Code
                 else if (vowels.Contains(char.ToLower(c)))
                 {
                     values[1]++;
+                    values[char.ToLower(c) + 6 - 97]++;
                 }
 
                 else if (consonants.Contains(char.ToLower(c)))
                 {
                     values[2]++;
+                    values[char.ToLower(c) + 6 - 97]++;
                 }
 
                 if (Char.IsUpper(c))
