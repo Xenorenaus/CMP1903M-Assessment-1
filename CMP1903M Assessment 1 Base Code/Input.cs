@@ -136,21 +136,34 @@ namespace CMP1903M_Assessment_1_Base_Code
             {
                 try
                 {
-                    Console.WriteLine("Gimme Dat Inputtiedoo: ");//, put \\n at the start of the line to write another line after
+                    string newText;
+                    bool endInput = false;
+
+                    while (!endInput)
+                    {
+                            Console.WriteLine("Gimme Dat Inputtiedoo(* as last character for another line of input): ");//, put \\n at the start of the line to write another line after
 
 #pragma warning disable CS8601 // Possible null reference assignment.
-                    text = Console.ReadLine();
+                        newText = Console.ReadLine();
 #pragma warning restore CS8601 // Possible null reference assignment.
 
-                    if (text != null)
-                    {
-                        return;
+                        if (newText != null)
+                        {
+                            text += newText;
+
+                            if (newText[newText.Length - 1] != '*')
+                            {
+                                endInput = true;
+                            }
+                        }
+
+                        else
+                        {
+                            throw new FormatException("Input is null");
+                        }
                     }
 
-                    else
-                    {
-                        throw new FormatException("Input is null");
-                    }
+                    return;
                 }
 
                 catch (FormatException)

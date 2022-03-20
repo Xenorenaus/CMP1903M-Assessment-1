@@ -34,15 +34,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             newReport.DisplayStatistics();
 
 
-            /* TO DO: Add the ability to input multiple lines of text manually
-             * Output file of long words in text (words >= 7 characters)
-             */
             //TO ADD: Get the frequency of individual letters?
-
-           
         }
-        
-        
-    
     }
 }
