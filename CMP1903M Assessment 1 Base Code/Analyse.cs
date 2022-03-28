@@ -14,7 +14,6 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         string vowels;
         string consonants;
-        string wordEnders;
 
         //Constructor 
         public Analyse(string txt)
@@ -26,6 +25,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             consonants = "bcdfghjklmnpqrstvwxyz";
         }
 
+        //Method not in base code
         //Method: GetFileOutputStrings
         //Returns: string array of long words to be put into long words file
         public string[] GetFileOutputStrings()
@@ -111,6 +111,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
 
 
+        //Method not in base code
         //Method: IncrementValuesList
         /* Parameters:
          * String newWord (Word to add to array if long enough)

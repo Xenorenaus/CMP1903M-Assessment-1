@@ -26,6 +26,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
 
 
+        //Method not in base code
         //Method: GetText
         //Returns: string (The text input)
         //Passes a function to get input based on the user's choice of input type
@@ -62,6 +63,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         }
 
 
+        //Method not in base code
         //Method: SetInputType
         //Retrieves input and determines whether inputType is manual or from a file, in which case, which file
         void SetInputType()
