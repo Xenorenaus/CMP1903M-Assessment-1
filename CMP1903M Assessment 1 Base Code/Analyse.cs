@@ -119,7 +119,7 @@ namespace CMP1903M_Assessment_1_Base_Code
          */
         //Returns: list of integers
         //If long enough, adds a new word to the array of strings, after resizing, to be added to the LongWords file.
-        public List<int> AddToFileOutputStrings(string newWord, List<int> valsList)
+        List<int> AddToFileOutputStrings(string newWord, List<int> valsList)
         {
             if (newWord.Length > 7)
             {
