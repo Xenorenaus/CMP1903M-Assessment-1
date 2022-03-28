@@ -12,7 +12,7 @@ namespace CMP1903M_Assessment_1_Base_Code
     public class Input
     {
         string text;
-        InputTypes inputType;
+        EnumerationContainer.InputTypes inputType;
 
         string filePath;
 
@@ -20,7 +20,7 @@ namespace CMP1903M_Assessment_1_Base_Code
         public Input()
         {
             text = "";
-            inputType = InputTypes.None;
+            inputType = EnumerationContainer.InputTypes.None;
 
             filePath = "";
         }
@@ -36,12 +36,12 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             try
             {
-                if (inputType.Equals(InputTypes.ManualInput))
+                if (inputType.Equals(EnumerationContainer.InputTypes.ManualInput))
                 {
                     ManualTextInput();
                 }
 
-                else if (inputType.Equals(InputTypes.FileInput))
+                else if (inputType.Equals(EnumerationContainer.InputTypes.FileInput))
                 {
                     FileTextInput(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, filePath));
                 }
@@ -71,7 +71,7 @@ namespace CMP1903M_Assessment_1_Base_Code
             string choice;
             string fileName;
 
-            while (inputType.Equals(InputTypes.None))
+            while (inputType.Equals(EnumerationContainer.InputTypes.None))
             {
                 try
                 {
@@ -85,7 +85,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     {
                         case ("1"):
                         {
-                            inputType = InputTypes.ManualInput;
+                            inputType = EnumerationContainer.InputTypes.ManualInput;
                             break;
                         }
 
@@ -102,7 +102,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
                             filePath = @"..\..\..\..\" + fileName + ".txt";
 
-                            inputType = InputTypes.FileInput;
+                            inputType = EnumerationContainer.InputTypes.FileInput;
                             break;
                         }
 
@@ -199,10 +199,5 @@ namespace CMP1903M_Assessment_1_Base_Code
     }
 
 
-    enum InputTypes
-    {
-        None,
-        ManualInput,
-        FileInput
-    }
+    
 }
