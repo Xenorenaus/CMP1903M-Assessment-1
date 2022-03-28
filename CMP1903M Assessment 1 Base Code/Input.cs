@@ -77,9 +77,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                         "1) Enter the text via the keyboard?\n" +
                         "2) Read in the text from a file?");
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    choice = Console.ReadLine();
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                    choice = Console.ReadLine() ?? "";
 
                     switch (choice)
                     {
@@ -93,9 +91,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                         {
                             Console.WriteLine("\nWhat is the file's name? (Leave blank for default file)");
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                            fileName = Console.ReadLine();
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                            fileName = Console.ReadLine() ?? "";
 
                             if (fileName == "")
                             {
@@ -143,9 +139,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                     {
                             Console.WriteLine("\nGimme Dat Inputtiedoo(* as last character for another line of input): ");//, put \\n at the start of the line to write another line after
 
-#pragma warning disable CS8600 // Possible null reference assignment.
-                        newText = Console.ReadLine();
-#pragma warning restore CS8600 // Possible null reference assignment.
+                        newText = Console.ReadLine() ?? "";
 
                         if (newText != null || newText == '\r'.ToString())
                         {

@@ -14,6 +14,7 @@ namespace CMP1903M_Assessment_1_Base_Code
 
         string vowels;
         string consonants;
+        string wordEnders;
 
         //Constructor 
         public Analyse(string txt)
@@ -56,40 +57,46 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             foreach (char c in text)
             {
-                if (c != ' ' && c != '.' && c != ',' && c != '\r')
+                //Check for word end
+                if (Char.IsLetterOrDigit(c))
                 {
                     newWord += c;
                 }
 
                 else
                 {
-                    IncrementValuesList(newWord, values);
+                    AddToFileOutputStrings(newWord, values);
 
                     newWord = "";
                 }
                 
+                //Increment number of words
                 if (c == '.')
                 {
                     values[0]++;
                 }
 
+                //Increment number of vowels
                 else if (vowels.Contains(char.ToLower(c)))
                 {
                     values[1]++;
                     values[char.ToLower(c) + 6 - 97]++;
                 }
 
+                //Increment number of consonants
                 else if (consonants.Contains(char.ToLower(c)))
                 {
                     values[2]++;
                     values[char.ToLower(c) + 6 - 97]++;
                 }
 
+                //Increment number of upper-case characters
                 if (Char.IsUpper(c))
                 {
                     values[3]++;
                 }
 
+                //Increment number of lower-case characters
                 else if (Char.IsLower(c))
                 {
                     values[4]++;
@@ -97,7 +104,8 @@ namespace CMP1903M_Assessment_1_Base_Code
 
             }
 
-            IncrementValuesList(newWord, values);
+            //Final check if last word is long enough to be added to file
+            AddToFileOutputStrings(newWord, values);
 
             return values;
         }
@@ -109,8 +117,8 @@ namespace CMP1903M_Assessment_1_Base_Code
          * List<int> valsList (List to add the new word to & return)
          */
         //Returns: list of integers
-        //Calculates and returns an analysis of the text
-        public List<int> IncrementValuesList(string newWord, List<int> valsList)
+        //If long enough, adds a new word to the array of strings, after resizing, to be added to the LongWords file.
+        public List<int> AddToFileOutputStrings(string newWord, List<int> valsList)
         {
             if (newWord.Length > 7)
             {

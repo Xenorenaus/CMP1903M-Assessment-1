@@ -47,9 +47,7 @@ namespace CMP1903M_Assessment_1_Base_Code
                         "1) Yes\n" +
                         "2) No");
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-                    choice = Console.ReadLine();
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+                    choice = Console.ReadLine() ?? "";
 
                     switch (choice)
                     {
